@@ -79,38 +79,21 @@ class _MyHomePageState extends State<MyHomePage> {
         appBar: AppBar(
           title: Text(widget.title),
         ),
-        body:Row(
-          children: [
-            SizedBox(
-              width: 20,
-            ),
-            SizedBox.square(
-              dimension: 100,
-              // width: 200,
-              //     height: 30,
-                  child: ElevatedButton(
-                    onPressed: (){
-                    print("Hey");
-                    },
-                    child: Text("click!!!!!!!"),
-                  ),
-            ),
-            SizedBox(
-              width: 20,
-            ),
-            // SizedBox.square(
-            //   dimension: 100,
-            //   // width: 200,
-            //   //     height: 30,
-            //   child: ElevatedButton(
-            //     onPressed: (){
-            //       print("Hey");
-            //     },
-            //     child: Text("click"),
-            //   ),
-            // ),
-          ],
-        ) ,
+        body: RichText(
+         text: TextSpan(
+           style: TextStyle(
+             fontSize: 30,
+             color: Colors.grey,
+           ),
+               children:  <TextSpan>[
+                   TextSpan(text: "Hello"),
+                 TextSpan(text: " World!" , style: TextStyle(fontSize: 40 , fontWeight: FontWeight.bold , color: Colors.blue)),
+            TextSpan(text:" welcome to " ),
+                 TextSpan(text: "Flutter" ,  style: TextStyle(fontSize: 45 , fontWeight: FontWeight.bold , color: Colors.blue.shade900))
+             ],
+         ),
+        ),
+
     );
   }
 }
