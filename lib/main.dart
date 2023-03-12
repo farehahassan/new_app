@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:intl/intl.dart';
 import 'package:new_app/ui_helper/util.dart';
 import 'package:new_app/widgets/rounded_btn.dart';
@@ -79,20 +80,16 @@ class _MyHomePageState extends State<MyHomePage> {
         appBar: AppBar(
           title: Text(widget.title),
         ),
-        body: RichText(
-         text: TextSpan(
-           style: TextStyle(
-             fontSize: 30,
-             color: Colors.grey,
-           ),
-               children:  <TextSpan>[
-                   TextSpan(text: "Hello"),
-                 TextSpan(text: " World!" , style: TextStyle(fontSize: 40 , fontWeight: FontWeight.bold , color: Colors.blue)),
-            TextSpan(text:" welcome to " ),
-                 TextSpan(text: "Flutter" ,  style: TextStyle(fontSize: 45 , fontWeight: FontWeight.bold , color: Colors.blue.shade900))
-             ],
-         ),
-        ),
+        body:Center(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: const [
+              Icon(Icons.local_grocery_store_outlined , size: 70,color: Colors.blue,),
+              FaIcon(FontAwesomeIcons.google, size: 50, color: Colors.red,)
+            ],
+            
+          ),
+        ) , 
 
     );
   }
