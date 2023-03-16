@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
+ /* this is long method and best for practice purpose ....
 class MyHomePage extends StatefulWidget{
   @override
   State<StatefulWidget> createState() {
@@ -35,5 +35,19 @@ class MyHomeState extends State<MyHomePage>{
    return Container();
   }
 
+}   */
+
+
+// First you have to create a statefulwidget , then just right click and covert it into statefulwidget
+class MyHomePage extends StatefulWidget{
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold();
+  }
 }
 
