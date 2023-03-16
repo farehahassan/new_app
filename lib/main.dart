@@ -16,11 +16,12 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      // home: MyHomePage(title: 'Contact page'),
+      // theme: Theme,
+      home: MyHomePage(title: 'Contact page'),
     );
   }
 }
- /* this is long method and best for practice purpose ....
+/* this is long method and best for practice purpose ....
 class MyHomePage extends StatefulWidget{
   @override
   State<StatefulWidget> createState() {
@@ -37,17 +38,37 @@ class MyHomeState extends State<MyHomePage>{
 
 }   */
 
+// First you have to create a stateful-widget , then just right click and covert it into stateful-widget
+class MyHomePage extends StatefulWidget {
+  const MyHomePage({super.key, required String title});
 
-// First you have to create a statefulwidget , then just right click and covert it into statefulwidget
-class MyHomePage extends StatefulWidget{
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+
+  var count = 0;
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Stateful"),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+             Text('Count : $count'),
+            ElevatedButton(onPressed: () {
+              setState(() {       //set state is used to show result at our screen whenever screen reloads
+                count++;
+                print(count);
+              });
+            }, child: const Text("Increment Counter"))
+          ],
+        ),
+      ),
+    );
   }
 }
-
