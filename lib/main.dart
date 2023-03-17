@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-// import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-// import 'package:new_app/ui_helper/util.dart';
-// import 'package:new_app/widgets/rounded_btn.dart';
+import 'package:new_app/Color.dart';
 
 void main() {
   runApp(const MyApp());
@@ -9,128 +7,130 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       // theme: Theme,
-      home: MyHomePage(title: 'Contact page'),
+      home: MyCalculatorApp(title: 'Contact page'),
     );
   }
 }
-/* this is long method and best for practice purpose ....
-class MyHomePage extends StatefulWidget{
-  @override
-  State<StatefulWidget> createState() {
-  return MyHomeState();
-  }
-
-}
-
-class MyHomeState extends State<MyHomePage>{
-  @override
-  Widget build(BuildContext context) {
-   return Container();
-  }
-
-}   */
 
 // First you have to create a stateful-widget , then just right click and covert it into stateful-widget
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required String title});
-
+class MyCalculatorApp extends StatefulWidget {
+  const MyCalculatorApp({super.key, required String title});
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<MyCalculatorApp> createState() => _MyCalculatorAppState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  var no1 = TextEditingController();
-  var no2 = TextEditingController();
-  var result = "";
-
+class _MyCalculatorAppState extends State<MyCalculatorApp> {
   // var count = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Stateful"),
-      ),
-      body: Container(
-        color: Colors.blue.shade100,
-        child: Center(
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                TextField(
-                  keyboardType: TextInputType.number,
-                  controller: no1 ,
+      backgroundColor: const Color(0xff124460),
+      body: Column(
+        children: [
+          
+          //input area
+          
+          Expanded(
+              child: Container(
+                width: double.infinity,
+              
+                decoration: BoxDecoration(
+                  color: signsColor,
+                  borderRadius: BorderRadius.circular(20)
                 ),
-                TextField(
-                  keyboardType: TextInputType.number,
-                  controller: no2,
+                padding: const EdgeInsets.all(15),
+                margin: EdgeInsets.all(15),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: const [
+                    Text("Input" , style: TextStyle(fontSize: 48, color: Colors.white),),
+                    SizedBox(
+                     height: 20,
+                    ),
+                    Text("Output" , style: TextStyle(fontSize: 34, color: Colors.grey),),
+                    SizedBox(
+                      height: 40,
+                    ),
+                  ],
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(21.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      ElevatedButton(onPressed: (){
-                        int num1 = int.parse(no1.text.toString());
-                        int num2 = int.parse(no2.text.toString());
-
-                        var sum = num1 + num2 ;
-                        result = "The sum of $num1 and $num2 is $sum";
-                        setState(() {
-
-                        });
-                      }, child: Text("Add")),
-                      ElevatedButton(onPressed: (){
-                        int num1 = int.parse(no1.text.toString());
-                        int num2 = int.parse(no2.text.toString());
-
-                        var diff = num1 - num2;
-                        result = "The subtraction of $num1 and $num2 is $diff";
-                        setState(() {
-
-                        });
-                      }, child: Text("Subtract")),
-                      ElevatedButton(onPressed: (){
-                        int num1 = int.parse(no1.text.toString());
-                        int num2 = int.parse(no2.text.toString());
-
-                        var mult = num1*num2;
-                        result="The multiplication of $num1 and $num2 is $mult";
-                        setState(() {
-
-                        });
-
-                      }, child: Text("multiply")),
-                      ElevatedButton(onPressed: (){
-                        int num1 = int.parse(no1.text.toString());
-                        int num2 = int.parse(no2.text.toString());
-
-                        var div = num1/num2;
-                        result="The division of $num1 and $num2 is $div";
-                        setState(() {
-
-                        });
-
-                      }, child: Text("divide")),
-                    ],
-                  ),
-                ),
-                Padding(padding: const EdgeInsets.all(8.0),
-                child: Text(result , style: TextStyle(fontSize: 25),),)
-              ],
-            ),
+          )),
+          
+          
+          
+          //buttons area
+          
+          Row(
+            children: [
+              button(text: "AC" , textColor: Colors.orangeAccent),
+              button(text: "<-" , textColor: Colors.orangeAccent),
+              button(text: "" , buttonBgColor:  Color(0xff124460)),
+              button(text: "/", buttonBgColor: signsColor, textColor: Colors.orangeAccent),
+            ],
           ),
-        ),
+          Row(
+            children: [
+              button(text: "7"),
+              button(text: "8"),
+              button(text: "9" ),
+              button(text: "x", buttonBgColor: signsColor, textColor: Colors.orangeAccent),
+            ],
+          ),
+          Row(
+            children: [
+              button(text: "4" ),
+              button(text: "5"),
+              button(text: "6" ),
+              button(text: "-", buttonBgColor: signsColor, textColor: Colors.orangeAccent),
+            ],
+          ),
+          Row(
+            children: [
+              button(text: "1"),
+              button(text: "2"),
+              button(text: "3"),
+              button(text: "+" , buttonBgColor: signsColor, textColor: Colors.orangeAccent),
+            ],
+          ),
+          Row(
+            children: [
+              button(text: "%" , buttonBgColor: signsColor, textColor: Colors.orangeAccent),
+              button(text: "0"),
+              button(text: "."),
+              button(text: "=" , buttonBgColor: mainOpColor),
+            ],
+          )
+        ],
       ),
     );
   }
+  Widget button({
+    text , textColor = Colors.white , buttonBgColor = numColor
+}){
+    return  Expanded(
+  child: Container(
+  margin: const EdgeInsets.all(8),
+  child: ElevatedButton(
+  onPressed: () {},
+  style: ElevatedButton.styleFrom(
+  shape: RoundedRectangleBorder(
+  borderRadius: BorderRadius.circular(10),
+  ),
+  backgroundColor:buttonBgColor,
+  padding: const EdgeInsets.all(21),
+  ),
+  child: Text(
+  text,
+  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold , color: textColor),
+  ),
+  ),
+  )
+    );
+}
 }
