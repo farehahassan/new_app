@@ -30,52 +30,16 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
 
-  // var input = '';
-  // var output ='';
-  // var operation ='';
-  // var removeInput =false;
-  // var biggerOutput = 48.0;
-  // onButtonClick(value){
-  //   if(value == 'AC'){
-  //     input='';
-  //     output='';
-  //   } else if(value == '<-'){
-  //     if(input.isNotEmpty)
-  //     input = input.substring(0 , input.length-1);
-  //   } else if(value == '='){
-  //     var userInput = input;
-  //     userInput = input.replaceAll("x", "*");
-  //     Parser p = Parser();
-  //     Expression expression = p.parse(userInput);
-  //     ContextModel cm = ContextModel();
-  //     var finalValue = expression.evaluate(EvaluationType.REAL, cm);
-  //     output = finalValue.toString();
-  //     if(output.endsWith(".0")){
-  //       output = output.substring(0 , output.length-2);
-  //     }
-  //     input = output;
-  //     removeInput = true;
-  //     biggerOutput = 54;
-  //   } else{
-  //     input = input +value;
-  //     removeInput = false;
-  //     biggerOutput = 34;
-  //   }
-  //   setState(() {
-  //
-  //   });
-  // }
 
-  // var count = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xff124460),
-      body: Center(
-        child: Container(
-            child: Text("Welcome to new page!!!..."  , style:  TextStyle(fontSize: 50, fontWeight: FontWeight.w700),),
-        ),
-      ),
+      body: Stack(
+        children: [
+          // Image(image: 'assets/images/bgBook.jpg')
+        ],
+      )
     );
   }
 }

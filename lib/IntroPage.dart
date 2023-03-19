@@ -1,7 +1,9 @@
-import 'package:flutter/cupertino.dart';
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:new_app/Color.dart';
 import 'package:new_app/main.dart';
+import 'package:blur/blur.dart';
 
 class IntroPage extends StatelessWidget {
   const IntroPage({super.key});
@@ -9,19 +11,26 @@ class IntroPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Container(
-          color: Colors.black,
-          child: ElevatedButton(
-            onPressed: () {
-              Navigator.push(context,MaterialPageRoute(builder: (context){return MyHomePage(title: '',); } ),);
-            },
-            child: Text(
-              "Next page",
-              style: TextStyle(fontSize: 30, color: numColor),
+      body: Stack(
+        children: [
+          Container(
+            width: double.infinity,
+            height: double.infinity,
+            decoration: BoxDecoration(
+                image: DecorationImage(
+                    image: AssetImage(
+                      'assets/images/final3.jpg',
+                    ),
+                    colorFilter: ColorFilter.mode(
+                      Colors.brown.withOpacity(1),
+                      BlendMode.hardLight,
+                    ))),
+            child: BackdropFilter(
+              filter: ImageFilter.blur(sigmaX: 2.0, sigmaY: 2.0),
+              child: Text(""),
             ),
           ),
-        ),
+        ],
       ),
     );
   }
