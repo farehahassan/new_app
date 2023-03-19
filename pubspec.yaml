@@ -37,6 +37,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   font_awesome_flutter: ^10.4.0
   math_expressions: ^2.3.1
+  blur: ^3.1.0
 
 dev_dependencies:
   intl: ^0.18.0
