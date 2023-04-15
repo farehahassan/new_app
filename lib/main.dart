@@ -4,6 +4,7 @@ import 'package:new_app/IntroPage.dart';
 import 'package:new_app/animated_op.dart';
 import 'package:new_app/animation.dart';
 import 'package:new_app/cross_fadeani.dart';
+import 'package:new_app/hero_animation.dart';
 // import 'package:math_expressions/math_expressions.dart';
 // import 'package:new_app/Color.dart';
 
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       // theme: Theme,
-      home:cross_fadeani(),
+      home:MyHomePage(title: "heh")
     );
   }
 }
@@ -37,12 +38,15 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xff124460),
-      body: Stack(
-        children: [
-          // Image(image: 'assets/images/bgBook.jpg')
-        ],
-      )
-    );
+        body: Container(
+          child: InkWell(
+            onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context)=> hero_animation()));},
+            child: Hero(
+                tag: 'background',
+                child: Image.asset(
+                  'assets/images/girl.png',
+                )),
+          ),
+        ));
   }
 }
