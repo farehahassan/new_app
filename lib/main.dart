@@ -1,7 +1,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:new_app/IntroPage.dart';
+import 'package:new_app/animated_op.dart';
 import 'package:new_app/animation.dart';
+import 'package:new_app/cross_fadeani.dart';
 // import 'package:math_expressions/math_expressions.dart';
 // import 'package:new_app/Color.dart';
 
@@ -17,7 +19,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       // theme: Theme,
-      home: animation(),
+      home:cross_fadeani(),
     );
   }
 }
